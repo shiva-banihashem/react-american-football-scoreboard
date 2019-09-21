@@ -1,5 +1,5 @@
 //TODO: STEP 1 - Import the useState hook.
-import React, { useState,useRef, useEffect }  from "react";
+import React, { useState }  from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
 import Timer from "./Timer";
@@ -25,7 +25,7 @@ function App() {
 
             <div className="home__score">{homeScore}</div>
           </div>
-          <div className="timer"><Timer seconds = {startingSec} /></div>
+          <div className="timer"><Timer seconds = {startingSec} quarter = {quarter}/></div>
           <div className="away">
             <h2 className="away__name">Tigers</h2>
             <div className="away__score">{awayScore}</div>
@@ -53,7 +53,7 @@ function App() {
           
       </div>
           
-      <button onClick={() => {quarter === 4?setQuarter(0):
+      <button onClick={() => {quarter === 4?setQuarter(1):
             setQuarter(quarter + 1);
             
           }} >Update Quarter</button> 

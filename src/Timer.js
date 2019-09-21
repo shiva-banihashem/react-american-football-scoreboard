@@ -1,11 +1,15 @@
-import React, { useState,useRef, useEffect }  from "react";
+import React, { useState, useEffect }  from "react";
 
-const Timer = ({ seconds}) => {
+
+
+const Timer = ({ seconds, quarter}) => {
     // initialize timeLeft with the seconds prop
     const [timeLeft, setTimeLeft] = useState(seconds);
   
     useEffect(() => {
+      
       // exit early when we reach 0
+      
       if (!timeLeft) 
         
       return;
@@ -22,7 +26,11 @@ const Timer = ({ seconds}) => {
       // when we update it
     },[timeLeft]);
   
-    
+      //Track if quarter has been changed, set the time to 900Sec
+
+    useEffect( ()=>{
+      setTimeLeft(900);
+    }, [quarter]);
     return (
       <div>
       <h1>{Math.floor(timeLeft/60)+":"+ timeLeft%60}</h1>
